@@ -2,7 +2,8 @@ from utils import *
 import cianparser
 import cloudscraper
 from tqdm import tqdm
-from IPython import display
+# from IPython import display
+import os
 
 
 
@@ -17,7 +18,8 @@ def main():
     for LOCATION in LOCATIONS:
         for ROOM in ROOMS:
             for page in range(1,55): #55 MAX
-                display.clear_output(wait=False)
+                # display.clear_output(wait=False)
+                os.system('cls')
                 data = cianparser.parse(deal_type="rent_long",accommodation_type="flat",location=LOCATION,rooms=ROOM,additional_settings=ADD_SETTINGS,
                 start_page=page,
                 end_page=page)
