@@ -1,15 +1,14 @@
 from utils import *
 import cianparser
 import cloudscraper
-
 from tqdm import tqdm
 from IPython import display
 
 
 
 
-# ROOMS = ['studio',1,2,3,4,5]
-ROOMS = [1,2,3,4,5]
+ROOMS = ['studio',1,2,3,4,5]
+# ROOMS = [1,2,3,4,5]
 LOCATIONS = ['Санкт-Петербург','Ленобласть']
 # LOCATIONS = ['Ленобласть']
 ADD_SETTINGS = {'sort_by' :'creation_data_from_newer_to_older'}
@@ -44,6 +43,7 @@ def main():
                     print('{}/{} '.format(i+1,len(links)),url)
                     id_ = url.split('/')[-2]
                     ids_.append(id_)
+                    #чтобы не лочили запросы
                     scraper = cloudscraper.create_scraper()
                     rnd_name = random.choice(['dasha','masha','tosha','sasha','vasya','kolya','anna','fedya','bob','mark','grisha'])
                     rnd_dig = random.randint(100,9000)
@@ -80,3 +80,5 @@ def main():
                 df4 = pd.concat([df_old,df3_j2]).reset_index(drop = True)
                 df4.to_csv('data/cian_data_r_{}_c_{}.csv'.format(ROOM,city))
 
+if __name__ == '__main__':
+    main()
