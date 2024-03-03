@@ -73,8 +73,8 @@ def get_house_info(soup,house_info_dict,i,about_flat_info,about_flat_type_info):
     len_home_info = len(soup.select('div[data-name="OfferSummaryInfoItem"]'))
     temp_info_dict = {}
     for h in range(len_home_info):
-        type_info = soup.select('div[data-name="OfferSummaryInfoItem"]')[h].find('span', class_ = about_flat_type_info).text
-        info = soup.select('div[data-name="OfferSummaryInfoItem"]')[h].find('span', class_ = about_flat_info).text
+        type_info = soup.select('div[data-name="OfferSummaryInfoItem"]')[h].find('p', class_ = about_flat_type_info).text
+        info = soup.select('div[data-name="OfferSummaryInfoItem"]')[h].find('p', class_ = about_flat_info).text
         if info != 'Нет информации' and type_info != 'Общая площадь':
             if type_info == 'Высота потолков':
                  if info.find(',') != -1:

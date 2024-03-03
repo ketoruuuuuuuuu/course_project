@@ -26,7 +26,10 @@ def main():
 
                 #скип цикла, если страницы кончились
                 if len(data) == 0:
+                    print("Пустая страница")
+                    time.sleep(4)
                     continue
+        
                 df2 = create_new_df(data)
                 print('Найдено объявлений: {}'.format(len(df2)))
                 df_old, city = get_old_df(LOCATION,ROOM)
